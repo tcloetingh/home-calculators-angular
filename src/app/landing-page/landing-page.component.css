@@ -1,0 +1,12 @@
+/* .landing-container {
+  height: 100vh;
+} */
+
+.landing-container .button-box {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.landing-container .button-box a {
+  margin: 5px;
+}

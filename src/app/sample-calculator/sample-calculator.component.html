@@ -1,0 +1,71 @@
+<h2 mat-dialog-title>Window Heat Loss Per Hour</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Number of Windows</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Total SqFt of Windows</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Type of Window</mat-label>
+    <mat-select>
+      <mat-option value="option">Old Single Pane Wooden Frame</mat-option>
+      <mat-option value="option">Old Double Pane Aluminum Frame</mat-option>
+      <mat-option value="option">Old Double Pane Woode Frame</mat-option>
+      <mat-option value="option">Old Vynl Frame Double Pane</mat-option>
+      <mat-option value="option"
+        >Average Double Pane Vinyl (10 Year Old)</mat-option
+      >
+      <mat-option value="option"
+        >New Double Pane Vinyl (Average Quality)</mat-option
+      >
+      <mat-option value="option"
+        >New Thermally Broken Double Pane Aluminum</mat-option
+      >
+      <mat-option value="option"
+        >Brand New Premium Vinyl Double Pane</mat-option
+      >
+      <mat-option value="option"
+        >Brand New Premium Wooden Frame Double Pane</mat-option
+      >
+      <mat-option value="option"
+        >Top Of The Line Triple Pane Premium Vinyl</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Outdoor Temp</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Indoor Temp</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <mat-form-field apperance="fill">
+    <mat-label>Electric Rate</mat-label>
+    <mat-select>
+      <mat-option value="option">$0.09/KwH</mat-option>
+      <mat-option value="option">$0.10/KwH</mat-option>
+      <mat-option value="option">$0.11/KwH</mat-option>
+      <mat-option value="option">$0.12/KwH</mat-option>
+      <mat-option value="option">$0.13/KwH</mat-option>
+      <mat-option value="option">$0.14/KwH</mat-option>
+      <mat-option value="option">$0.15/KwH</mat-option>
+      <mat-option value="option">$0.16/KwH</mat-option>
+      <mat-option value="option">$0.17/KwH</mat-option>
+      <mat-option value="option">$0.18/KwH</mat-option>
+      <mat-option value="option">$0.19/KwH</mat-option>
+      <mat-option value="option">$0.20/KwH</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button">Calculate</button>
+  <button class="mat-raised-button">Close</button>
+</mat-dialog-actions>
