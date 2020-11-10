@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  firebaseConfig: {
+  firebase: {
     apiKey: 'AIzaSyDYvnvWlJJ_z07RcYsIugf-LaitzspsrVw',
     authDomain: 'home-calculators.firebaseapp.com',
     databaseURL: 'https://home-calculators.firebaseio.com',
