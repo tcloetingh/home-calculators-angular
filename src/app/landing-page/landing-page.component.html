@@ -2,6 +2,8 @@
   <div class="button-box">
     <div class="mat-headline">Build a better home with DATA</div>
     <a mat-raised-button (click)="openModal()">Sample Calculator</a>
-    <a mat-raised-button color="accent">Signin With Google</a>
+    <a mat-raised-button color="accent" (click)="authService.GoogleAuth()"
+      >Signin With Google</a
+    >
   </div>
 </div>
