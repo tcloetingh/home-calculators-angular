@@ -23,6 +23,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MaterialModule } from './material/material.module';
 import { SampleCalculatorComponent } from './sample-calculator/sample-calculator.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CalculationsService } from './shared/services/calculations.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LayoutModule,
     MaterialModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, CalculationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

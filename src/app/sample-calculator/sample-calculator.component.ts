@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalculationsService } from '../shared/services/calculations.service';
 
 @Component({
   selector: 'app-sample-calculator',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sample-calculator.component.css']
 })
 export class SampleCalculatorComponent implements OnInit {
+  btuLoss: number;
+  wattage: number;
+  price: number;
 
-  constructor() { }
+  constructor(public calcService: CalculationsService) {}
 
-  ngOnInit(): void {
+  onSampleCalculation(
+    numberOfWindows,
+    sqftOfWindows,
+    typeOfWindows,
+    outdoorTemp,
+    indoorTemp,
+    kwh
+  ) {
+    const energyResults = this.calcService.sampleCalculation(
+      numberOfWindows,
+      sqftOfWindows,
+      typeOfWindows,
+      outdoorTemp,
+      indoorTemp,
+      kwh
+    );
+
+    console.log(energyResults);
   }
 
+  ngOnInit(): void {}
 }

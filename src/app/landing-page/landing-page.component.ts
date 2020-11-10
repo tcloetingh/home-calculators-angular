@@ -13,6 +13,9 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {}
 
   openModal() {
-    this.dialog.open(SampleCalculatorComponent);
+    const dialogRef = this.dialog.open(SampleCalculatorComponent, {
+      height: '550px',
+      width: '350px'
+    });
   }
 }

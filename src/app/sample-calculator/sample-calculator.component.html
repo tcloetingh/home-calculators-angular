@@ -2,37 +2,30 @@
 <mat-dialog-content>
   <mat-form-field appearance="fill">
     <mat-label>Number of Windows</mat-label>
-    <input matInput />
+    <input matInput #numberOfWindows required />
   </mat-form-field>
   <br />
   <mat-form-field appearance="fill">
     <mat-label>Total SqFt of Windows</mat-label>
-    <input matInput />
+    <input matInput #sqftOfWindows required />
   </mat-form-field>
   <br />
   <mat-form-field appearance="fill">
     <mat-label>Type of Window</mat-label>
-    <mat-select>
-      <mat-option value="option">Old Single Pane Wooden Frame</mat-option>
-      <mat-option value="option">Old Double Pane Aluminum Frame</mat-option>
-      <mat-option value="option">Old Double Pane Woode Frame</mat-option>
-      <mat-option value="option">Old Vynl Frame Double Pane</mat-option>
-      <mat-option value="option"
-        >Average Double Pane Vinyl (10 Year Old)</mat-option
-      >
-      <mat-option value="option"
-        >New Double Pane Vinyl (Average Quality)</mat-option
-      >
-      <mat-option value="option"
+    <mat-select #typeOfWindow>
+      <mat-option value=".9">Old Single Pane Wooden Frame</mat-option>
+      <mat-option value="0.8">Old Double Pane Aluminum Frame</mat-option>
+      <mat-option value="0.7">Old Double Pane Woode Frame</mat-option>
+      <mat-option value="0.6">Old Vynl Frame Double Pane</mat-option>
+      <mat-option value="0.5">Double Pane Vinyl (Average Quality)</mat-option>
+      <mat-option value="0.5"
         >New Thermally Broken Double Pane Aluminum</mat-option
       >
-      <mat-option value="option"
-        >Brand New Premium Vinyl Double Pane</mat-option
-      >
-      <mat-option value="option"
+      <mat-option value="0.3">Brand New Premium Vinyl Double Pane</mat-option>
+      <mat-option value="0.33"
         >Brand New Premium Wooden Frame Double Pane</mat-option
       >
-      <mat-option value="option"
+      <mat-option value="0.2"
         >Top Of The Line Triple Pane Premium Vinyl</mat-option
       >
     </mat-select>
@@ -40,32 +33,50 @@
   <br />
   <mat-form-field appearance="fill">
     <mat-label>Outdoor Temp</mat-label>
-    <input matInput />
+    <input matInput #outdoorTemp required />
   </mat-form-field>
+  <br />
   <mat-form-field appearance="fill">
     <mat-label>Indoor Temp</mat-label>
-    <input matInput />
+    <input matInput #indoorTemp required />
   </mat-form-field>
+  <br />
   <mat-form-field apperance="fill">
     <mat-label>Electric Rate</mat-label>
-    <mat-select>
-      <mat-option value="option">$0.09/KwH</mat-option>
-      <mat-option value="option">$0.10/KwH</mat-option>
-      <mat-option value="option">$0.11/KwH</mat-option>
-      <mat-option value="option">$0.12/KwH</mat-option>
-      <mat-option value="option">$0.13/KwH</mat-option>
-      <mat-option value="option">$0.14/KwH</mat-option>
-      <mat-option value="option">$0.15/KwH</mat-option>
-      <mat-option value="option">$0.16/KwH</mat-option>
-      <mat-option value="option">$0.17/KwH</mat-option>
-      <mat-option value="option">$0.18/KwH</mat-option>
-      <mat-option value="option">$0.19/KwH</mat-option>
-      <mat-option value="option">$0.20/KwH</mat-option>
+    <mat-select #kwh required>
+      <mat-option value="0.9">$0.09/KwH</mat-option>
+      <mat-option value="0.10">$0.10/KwH</mat-option>
+      <mat-option value="0.11">$0.11/KwH</mat-option>
+      <mat-option value="0.12">$0.12/KwH</mat-option>
+      <mat-option value="0.13">$0.13/KwH</mat-option>
+      <mat-option value="0.14">$0.14/KwH</mat-option>
+      <mat-option value="0.15">$0.15/KwH</mat-option>
+      <mat-option value="0.16">$0.16/KwH</mat-option>
+      <mat-option value="0.17">$0.17/KwH</mat-option>
+      <mat-option value="0.18">$0.18/KwH</mat-option>
+      <mat-option value="0.19">$0.19/KwH</mat-option>
+      <mat-option value="0.20">$0.20/KwH</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-raised-button color="accent">Calculate</button>
-  <button mat-raised-button>Close</button>
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="
+      onSampleCalculation(
+        numberOfWindows.value,
+        sqftOfWindows.value,
+        typeOfWindow.value,
+        outdoorTemp.value,
+        indoorTemp.value,
+        kwh.value
+      )
+    "
+  >
+    Calculate
+  </button>
+  <button mat-raised-button>Reset</button>
+  <button mat-raised-button mat-dialog-close>Close</button>
 </mat-dialog-actions>
