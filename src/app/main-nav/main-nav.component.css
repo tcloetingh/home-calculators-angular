@@ -20,3 +20,9 @@
 .title {
   margin: auto;
 }
+
+.title a {
+  text-decoration: none;
+  color: #ffff;
+  font-size: 30px;
+}
