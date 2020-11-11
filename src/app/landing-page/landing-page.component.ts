@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SampleCalculatorComponent } from '../sample-calculator/sample-calculator.component';
 import { AuthService } from '../shared/services/auth.service';
 
@@ -13,9 +13,9 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {}
 
   openModal() {
-    const dialogRef = this.dialog.open(SampleCalculatorComponent, {
-      height: '550px',
-      width: '350px'
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '500px';
+    dialogConfig.minHeight = '600px';
+    const dialogRef = this.dialog.open(SampleCalculatorComponent, dialogConfig);
   }
 }

@@ -1,16 +1,12 @@
 <div class="main-container">
+  <h2>Register Your House to Build a Smarter Home</h2>
   <div class="form-container">
     <form [formGroup]="homeForm" (submit)="onSubmit()">
       <!-- HOUSE NAME -->
       <mat-form-field class="form-field" appearance="outline">
         <mat-label> House Name </mat-label>
-        <input matInput formControlName="houseName" type="number" required />
-        <mat-error
-          *ngIf="
-            homeForm.controls.houseName.touched &&
-            homeForm.controls.houseName.invalid
-          "
-        >
+        <input matInput formControlName="houseName" required />
+        <mat-error *ngIf="homeForm.controls.houseName.invalid">
           <span *ngIf="homeForm.controls.houseName.errors.required"
             >This field is mandatory.</span
           >

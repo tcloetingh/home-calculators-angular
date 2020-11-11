@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalculationsService } from '../shared/services/calculations.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sample-calculator',
@@ -7,31 +8,30 @@ import { CalculationsService } from '../shared/services/calculations.service';
   styleUrls: ['./sample-calculator.component.css']
 })
 export class SampleCalculatorComponent implements OnInit {
-  btuLoss: number;
-  wattage: number;
-  price: number;
+  sampleForm: FormGroup;
+  energyResults: Object;
 
-  constructor(public calcService: CalculationsService) {}
+  constructor(
+    public calcService: CalculationsService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  onSampleCalculation(
-    numberOfWindows,
-    sqftOfWindows,
-    typeOfWindows,
-    outdoorTemp,
-    indoorTemp,
-    kwh
-  ) {
-    const energyResults = this.calcService.sampleCalculation(
-      numberOfWindows,
-      sqftOfWindows,
-      typeOfWindows,
-      outdoorTemp,
-      indoorTemp,
-      kwh
+  onSampleCalculation() {
+    this.energyResults = this.calcService.sampleCalculation(
+      this.sampleForm.value
     );
 
-    console.log(energyResults);
+    console.log(this.energyResults);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sampleForm = this.formBuilder.group({
+      numberOfWindows: [null, [Validators.required]],
+      sqftOfWindows: [null, [Validators.required]],
+      typeOfWindows: [null, [Validators.required]],
+      outdoorTemp: [null, [Validators.required]],
+      indoorTemp: [null, [Validators.required]],
+      kwh: [null, [Validators.required]]
+    });
+  }
 }

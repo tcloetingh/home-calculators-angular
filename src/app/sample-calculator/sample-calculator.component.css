@@ -1,5 +1,14 @@
-.mat-dialog-content,
-.mat-dialog-title,
-.mat-dialog-actions {
+form {
   text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+form button {
+  margin: auto;
+}
+
+.energyResults h4,
+.energyResults span {
+  color: red;
 }

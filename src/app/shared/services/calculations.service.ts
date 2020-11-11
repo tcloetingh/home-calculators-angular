@@ -6,14 +6,7 @@ import { Injectable } from '@angular/core';
 export class CalculationsService {
   constructor() {}
 
-  sampleCalculation(
-    numberOfWindows,
-    sqftOfWindows,
-    typeOfWindows,
-    outdoorTemp,
-    indoorTemp,
-    kwh
-  ) {
+  sampleCalculation(formValues) {
     const energyInfo = {
       tempDelta: null,
       wattsUsed: null,
@@ -21,16 +14,16 @@ export class CalculationsService {
       btuLoss: null
     };
 
-    energyInfo.tempDelta = indoorTemp - outdoorTemp;
+    energyInfo.tempDelta = formValues.indoorTemp - formValues.outdoorTemp;
     energyInfo.btuLoss = (
       energyInfo.tempDelta *
-      typeOfWindows *
-      sqftOfWindows
+      formValues.typeOfWindows *
+      formValues.sqftOfWindows
     ).toFixed(0);
     energyInfo.wattsUsed = (energyInfo.btuLoss / 3.412).toFixed(0);
     energyInfo.electricConsumption = (
       (energyInfo.btuLoss / 3412) *
-      kwh
+      formValues.kwh
     ).toFixed(2);
 
     return energyInfo;
