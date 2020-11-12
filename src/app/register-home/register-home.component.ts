@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelpPageComponent } from '../help-page/help-page.component';
 import { MatDialog } from '@angular/material/dialog';
+import { HouseDBService } from '../shared/services/houseDB.service';
 
 @Component({
   selector: 'app-register-home',
@@ -11,7 +12,11 @@ import { MatDialog } from '@angular/material/dialog';
 export class RegisterHomeComponent implements OnInit {
   homeForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {}
+  constructor(
+    private houseDBservice: HouseDBService,
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.homeForm = this.formBuilder.group({
@@ -34,7 +39,9 @@ export class RegisterHomeComponent implements OnInit {
     if (!this.homeForm.valid) {
       return;
     }
+    const houseData = this.homeForm.value;
     console.log(this.homeForm.value);
+    this.houseDBservice.createAndStoreHome(houseData);
   }
 
   openModal() {

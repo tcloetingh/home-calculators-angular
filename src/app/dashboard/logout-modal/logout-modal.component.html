@@ -1,0 +1,13 @@
+<p>Ready to Log Out ?</p>
+<mat-dialog-actions>
+  <a
+    mat-raised-button
+    color="accent"
+    type="button"
+    (click)="authService.SignOut()"
+    mat-dialog-close
+  >
+    Logout
+  </a>
+  <button mat-raised-button mat-dialog-close>Stay Logged In</button>
+</mat-dialog-actions>

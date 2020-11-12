@@ -27,6 +27,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalculationsService } from './shared/services/calculations.service';
 import { RegisterHomeComponent } from './register-home/register-home.component';
 import { HelpPageComponent } from './help-page/help-page.component';
+import { LogoutModalComponent } from './dashboard/logout-modal/logout-modal.component';
+import { HouseDBService } from './shared/services/houseDB.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,12 +39,14 @@ import { HelpPageComponent } from './help-page/help-page.component';
     SampleCalculatorComponent,
     DashboardComponent,
     RegisterHomeComponent,
-    HelpPageComponent
+    HelpPageComponent,
+    LogoutModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth,
@@ -49,7 +54,7 @@ import { HelpPageComponent } from './help-page/help-page.component';
     LayoutModule,
     MaterialModule
   ],
-  providers: [AuthService, CalculationsService],
+  providers: [AuthService, CalculationsService, HouseDBService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
