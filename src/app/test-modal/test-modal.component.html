@@ -1,0 +1,75 @@
+<h1 mat-dialig-title>randon dialog</h1>
+
+<mat-dialog-content>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+    <div class="child-1">
+      <mat-form-field appearance="fill">
+        <mat-label>Number of Windows</mat-label>
+        <input matInput required formControlName="numberOfWindows" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Total SqFt of Windows</mat-label>
+        <input matInput required formControlName="sqftOfWindows" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Type of Window</mat-label>
+        <mat-select formControlName="typeOfWindows">
+          <mat-option value="0.9">Old Single Pane Wooden Frame</mat-option>
+          <mat-option value="0.8">Old Double Pane Aluminum Frame</mat-option>
+          <mat-option value="0.7">Old Double Pane Woode Frame</mat-option>
+          <mat-option value="0.6">Old Vynl Frame Double Pane</mat-option>
+          <mat-option value="0.5"
+            >Double Pane Vinyl (Average Quality)</mat-option
+          >
+          <mat-option value="0.5"
+            >New Thermally Broken Double Pane Aluminum</mat-option
+          >
+          <mat-option value="0.3"
+            >Brand New Premium Vinyl Double Pane</mat-option
+          >
+          <mat-option value="0.33"
+            >Brand New Premium Wooden Frame Double Pane</mat-option
+          >
+          <mat-option value="0.2"
+            >Top Of The Line Triple Pane Premium Vinyl</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="child-2">
+      <mat-form-field appearance="fill">
+        <mat-label>Outdoor Temp</mat-label>
+        <input matInput required formControlName="outdoorTemp" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Indoor Temp</mat-label>
+        <input matInput required formControlName="indoorTemp" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Electric Rate</mat-label>
+        <mat-select required formControlName="kwh">
+          <mat-option value="0.9">$0.09/KwH</mat-option>
+          <mat-option value="0.10">$0.10/KwH</mat-option>
+          <mat-option value="0.11">$0.11/KwH</mat-option>
+          <mat-option value="0.12">$0.12/KwH</mat-option>
+          <mat-option value="0.13">$0.13/KwH</mat-option>
+          <mat-option value="0.14">$0.14/KwH</mat-option>
+          <mat-option value="0.15">$0.15/KwH</mat-option>
+          <mat-option value="0.16">$0.16/KwH</mat-option>
+          <mat-option value="0.17">$0.17/KwH</mat-option>
+          <mat-option value="0.18">$0.18/KwH</mat-option>
+          <mat-option value="0.19">$0.19/KwH</mat-option>
+          <mat-option value="0.20">$0.20/KwH</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

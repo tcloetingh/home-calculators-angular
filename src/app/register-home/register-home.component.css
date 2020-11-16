@@ -1,20 +1,9 @@
-.main-container {
-  margin-top: 50px;
-  margin-bottom: 50px;
+h2 {
   text-align: center;
 }
 
-.form-container {
-  background-color: white;
-  width: 300px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin: auto;
-  /* border-style: solid;
-  border-width: 3px;
-  border-color: #ffbf00; */
-  border: 3px solid #009688;
-  border-radius: 10px;
+.main-container {
+  margin-top: 20vh;
 }
 
 .help-button {

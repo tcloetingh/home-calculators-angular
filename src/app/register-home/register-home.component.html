@@ -1,7 +1,12 @@
-<div class="main-container">
-  <h2>Register Your House to Build a Smarter Home</h2>
-  <div class="form-container">
-    <form [formGroup]="homeForm" (submit)="onSubmit()">
+<h2>Register Your Home</h2>
+<div fxLayoutAlign="center center" fxFlexFill class="main-container">
+  <mat-card fxFlex="50">
+    <form
+      [formGroup]="homeForm"
+      (submit)="onSubmit()"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+    >
       <!-- HOUSE NAME -->
       <mat-form-field class="form-field" appearance="outline">
         <mat-label> House Name </mat-label>
@@ -34,6 +39,11 @@
           <mat-option value="2">2</mat-option>
           <mat-option value="3">3</mat-option>
         </mat-select>
+      </mat-form-field>
+      <!-- Year Built -->
+      <mat-form-field appearance="outline">
+        <mat-label>Year Built</mat-label>
+        <input matInput type="nubmer" formControlName="yearBuilt" />
       </mat-form-field>
       <!-- R VALUE -->
       <mat-form-field appearance="outline">
@@ -113,7 +123,7 @@
         Register Home
       </button>
     </form>
-  </div>
+  </mat-card>
   <button mat-fab color="accent" class="help-button" (click)="openModal()">
     <mat-icon>help</mat-icon>
   </button>

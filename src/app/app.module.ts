@@ -14,6 +14,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ReactiveFormsModule } from '@angular/forms';
 
+// Font Awesome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// Flex
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 // Auth service
 import { AuthService } from './shared/services/auth.service';
 
@@ -30,6 +35,9 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { LogoutModalComponent } from './dashboard/logout-modal/logout-modal.component';
 import { HouseDBService } from './shared/services/houseDB.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { TestModalComponent } from './test-modal/test-modal.component';
+import { CalculateComponent } from './calculate/calculate.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +48,10 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     RegisterHomeComponent,
     HelpPageComponent,
-    LogoutModalComponent
+    LogoutModalComponent,
+    LoadingSpinnerComponent,
+    TestModalComponent,
+    CalculateComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +63,9 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule, // auth,
     BrowserAnimationsModule, // storage
     LayoutModule,
-    MaterialModule
+    MaterialModule,
+    FontAwesomeModule,
+    FlexLayoutModule
   ],
   providers: [AuthService, CalculationsService, HouseDBService],
   bootstrap: [AppComponent]

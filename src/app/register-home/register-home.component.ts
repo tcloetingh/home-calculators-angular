@@ -22,6 +22,7 @@ export class RegisterHomeComponent implements OnInit {
     this.homeForm = this.formBuilder.group({
       houseName: [null, [Validators.required]],
       squareFootage: [null, Validators.required],
+      yearBuild: [null, Validators.required],
       stories: [null, Validators.required],
       rValue: [null, Validators.required],
       doors: [null, Validators.required],
@@ -45,9 +46,6 @@ export class RegisterHomeComponent implements OnInit {
   }
 
   openModal() {
-    const dialogRef = this.dialog.open(HelpPageComponent, {
-      height: '550px',
-      width: '350px'
-    });
+    const dialogRef = this.dialog.open(HelpPageComponent);
   }
 }

@@ -10,6 +10,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class SampleCalculatorComponent implements OnInit {
   sampleForm: FormGroup;
   energyResults: Object;
+  isLoading = false;
+  showForm = true;
 
   constructor(
     public calcService: CalculationsService,
@@ -17,11 +19,15 @@ export class SampleCalculatorComponent implements OnInit {
   ) {}
 
   onSampleCalculation() {
-    this.energyResults = this.calcService.sampleCalculation(
-      this.sampleForm.value
-    );
+    this.isLoading = true;
+    this.showForm = false;
+    setTimeout(() => {
+      this.energyResults = this.calcService.sampleCalculation(
+        this.sampleForm.value
+      );
 
-    console.log(this.energyResults);
+      this.isLoading = false;
+    }, 3000);
   }
 
   ngOnInit(): void {

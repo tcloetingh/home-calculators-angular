@@ -1,1 +1,31 @@
-<p>help-page works!</p>
+<h2 mat-dialog-title>Need Help?</h2>
+<mat-dialog-content>
+  <ul>
+    <li>
+      If you're not sure about what type of windows you have please select old
+      vinyl double pane.
+    </li>
+    <li>
+      Not sure about KwH? The national average is $0.13
+    </li>
+    <li>
+      Heating Degree Days (HDD)? take the average temperature on any given day
+      and subtract it from the base temperature (65 degrees). Add up all the
+      days throughout the cold season to get Heating Degree Days.
+      <a
+        href="https://www.weatherdatadepot.com/degree-day-comparison"
+        target="_blank"
+        >weatherdatadepot.com/degree-day-comparison</a
+      >
+      is a great site to find annual HDD by zipcode.
+    </li>
+    <li>
+      Cooling Degree Days (CDD)? Just the inverse of HDD. The aggregated total
+      of average temperature per day above 65 degrees. If unsure use 3500 for
+      both HDD and CDD, thats about the average for the mid-atlantic region.
+    </li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions>

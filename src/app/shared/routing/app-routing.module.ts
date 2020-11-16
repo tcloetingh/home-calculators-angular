@@ -6,6 +6,7 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 
 import { AuthGuard } from '../../shared/guard/auth.guard';
 import { RegisterHomeComponent } from 'src/app/register-home/register-home.component';
+import { CalculateComponent } from 'src/app/calculate/calculate.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -15,7 +16,15 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'register-home', component: RegisterHomeComponent }
+  {
+    path: 'register-home',
+    component: RegisterHomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'calculate',
+    component: CalculateComponent
+  }
 ];
 
 @NgModule({
