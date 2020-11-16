@@ -26,3 +26,8 @@
   color: #ffff;
   font-size: 30px;
 }
+
+mat-icon {
+  width: 48px;
+  margin-left: 10px;
+}

@@ -1,7 +1,5 @@
-form {
-  text-align: center;
-  height: 100%;
-  width: 100%;
+.sample-form {
+  min-height: 625px;
 }
 
 form button {

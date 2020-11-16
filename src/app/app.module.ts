@@ -38,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TestModalComponent } from './test-modal/test-modal.component';
 import { CalculateComponent } from './calculate/calculate.component';
+import { CalcModalComponent } from './calculate/calc-modal/calc-modal.component';
+import { MustLoginComponent } from './main-nav/must-login/must-login.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { CalculateComponent } from './calculate/calculate.component';
     LogoutModalComponent,
     LoadingSpinnerComponent,
     TestModalComponent,
-    CalculateComponent
+    CalculateComponent,
+    CalcModalComponent,
+    MustLoginComponent
   ],
   imports: [
     BrowserModule,

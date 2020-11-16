@@ -1,9 +1,10 @@
-h2 {
+mat-card-title {
   text-align: center;
 }
 
-.main-container {
-  margin-top: 20vh;
+.mat-card {
+  height: 90vh;
+  overflow: scroll;
 }
 
 .help-button {

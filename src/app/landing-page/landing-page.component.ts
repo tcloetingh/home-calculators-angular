@@ -17,11 +17,6 @@ export class LandingPageComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '500px';
     dialogConfig.minHeight = '600px';
-    const dialogRef = this.dialog.open(SampleCalculatorComponent, dialogConfig);
-  }
-
-  openBurnerModal() {
-    const testDialogConfig = new MatDialogConfig();
-    this.dialog.open(TestModalComponent);
+    const dialogRef = this.dialog.open(SampleCalculatorComponent);
   }
 }
