@@ -12,6 +12,8 @@ import { MustLoginComponent } from './must-login/must-login.component';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
+  showCheckMark = this.authService.isLoggedIn;
+
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -21,7 +23,7 @@ export class MainNavComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private authService: AuthService,
+    public authService: AuthService,
     public dialog: MatDialog
   ) {}
 

@@ -35,6 +35,16 @@
         <a [routerLink]="['/sign-in']">Smarter Home</a
         ><mat-icon>roofing</mat-icon>
       </div>
+      <!-- <div *ngIf="showCheckMark">
+        <mat-icon>check_circle</mat-icon>
+      </div> -->
+      <div *ngIf="authService.userData as user">
+        <img
+          class="nav-img"
+          src="{{ user.photoURL ? user.photoURL : '/assets/dummy-user.png' }}"
+          alt="{{ user.displayName }}"
+        />
+      </div>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

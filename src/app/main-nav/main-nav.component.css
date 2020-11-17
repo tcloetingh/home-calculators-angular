@@ -31,3 +31,9 @@ mat-icon {
   width: 48px;
   margin-left: 10px;
 }
+
+.nav-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
