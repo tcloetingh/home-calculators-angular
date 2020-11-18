@@ -1,25 +1,33 @@
 <div class="dashboard-container" *ngIf="authService.userData as user">
-  <div class="dashboard-container">
-    <div class="media">
+  <div class="info-box">
+    <div class="contact-section">
       <img
         class="thumbnail-img"
         src="{{ user.photoURL ? user.photoURL : '/assets/dummy-user.png' }}"
         alt="{{ user.displayName }}"
       />
-      <div class="media-body">
-        <h1>
-          Hello:
-          <strong>{{ user.displayName ? user.displayName : "User" }}</strong>
-        </h1>
-        <p>
-          User ID: <strong>{{ user.uid }}</strong>
-        </p>
-        <p>
-          Email: <strong>{{ user.email }}</strong>
-        </p>
-        <p>
-          Email Verified: <strong>{{ user.emailVerified }}</strong>
-        </p>
+      <h1>
+        Hello:
+        <strong>{{ user.displayName ? user.displayName : "User" }}</strong>
+      </h1>
+      <p>
+        User ID: <strong>{{ user.uid }}</strong>
+      </p>
+      <p>
+        Email: <strong>{{ user.email }}</strong>
+      </p>
+      <p>
+        Email Verified: <strong>{{ user.emailVerified }}</strong>
+      </p>
+    </div>
+    <div class="percentage-section">
+      <h2>Efficiency Rating</h2>
+      <div class="c100 p34 center">
+        <span>34%</span>
+        <div class="slice">
+          <div class="bar"></div>
+          <div class="fill"></div>
+        </div>
       </div>
     </div>
   </div>
