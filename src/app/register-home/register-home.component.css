@@ -3,8 +3,9 @@ mat-card-title {
 }
 
 .mat-card {
-  height: 90vh;
-  overflow: scroll;
+  min-width: 350px;
+  margin-top: 500px !important;
+  margin-bottom: 50px;
 }
 
 .help-button {
