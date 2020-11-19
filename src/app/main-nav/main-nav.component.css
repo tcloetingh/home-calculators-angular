@@ -18,6 +18,7 @@
 }
 
 .title {
+  text-align: center;
   margin: auto;
 }
 
@@ -27,13 +28,17 @@
   font-size: 30px;
 }
 
-mat-icon {
+/* mat-icon {
   width: 48px;
   margin-left: 10px;
-}
+} */
 
 .nav-img {
   width: 42px;
   height: 42px;
   border-radius: 50%;
+}
+
+.img-box {
+  margin-top: 6px;
 }

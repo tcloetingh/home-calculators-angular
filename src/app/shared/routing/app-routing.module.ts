@@ -9,7 +9,11 @@ import { RegisterHomeComponent } from 'src/app/register-home/register-home.compo
 import { CalculateComponent } from 'src/app/calculate/calculate.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'sign-in',
+    pathMatch: 'full'
+  },
   { path: 'sign-in', component: LandingPageComponent },
   {
     path: 'dashboard',

@@ -29,7 +29,9 @@
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async"
       >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon" class="hamburger"
+          >menu</mat-icon
+        >
       </button>
       <div class="title">
         <a [routerLink]="['/sign-in']">Smarter Home</a
@@ -38,7 +40,7 @@
       <!-- <div *ngIf="showCheckMark">
         <mat-icon>check_circle</mat-icon>
       </div> -->
-      <div *ngIf="authService.userData as user">
+      <div *ngIf="authService.userData as user" class="img-box">
         <img
           class="nav-img"
           src="{{ user.photoURL ? user.photoURL : '/assets/dummy-user.png' }}"

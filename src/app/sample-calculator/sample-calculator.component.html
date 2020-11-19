@@ -71,15 +71,21 @@
         <mat-option value="0.20">$0.20/KwH</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-dialog-action>
-      <button mat-raised-button color="accent" type="submit">
-        Calculate
-      </button>
-      <button mat-raised-button type="button" (click)="this.sampleForm.reset()">
-        Reset
-      </button>
-      <button mat-raised-button mat-dialog-close>Close</button>
-    </mat-dialog-action>
+    <div class="button-box">
+      <mat-dialog-action>
+        <button mat-raised-button color="accent" type="submit">
+          Calculate
+        </button>
+        <button
+          mat-raised-button
+          type="button"
+          (click)="this.sampleForm.reset()"
+        >
+          Reset
+        </button>
+        <button mat-raised-button mat-dialog-close>Close</button>
+      </mat-dialog-action>
+    </div>
   </mat-dialog-content>
 </form>
 

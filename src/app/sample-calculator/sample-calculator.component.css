@@ -1,7 +1,3 @@
-.sample-form {
-  min-height: 625px;
-}
-
 form button {
   margin: 5px;
 }
@@ -9,4 +5,16 @@ form button {
 .energyResults h4,
 .energyResults span {
   color: red;
+}
+
+h2 {
+  text-align: center;
+}
+
+.button-box {
+  text-align: center;
+}
+
+.form-container {
+  height: 100%;
 }

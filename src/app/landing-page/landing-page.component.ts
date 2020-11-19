@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SampleCalculatorComponent } from '../sample-calculator/sample-calculator.component';
 import { AuthService } from '../shared/services/auth.service';
-import { TestModalComponent } from '../test-modal/test-modal.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -13,10 +12,9 @@ export class LandingPageComponent implements OnInit {
   constructor(public dialog: MatDialog, public authService: AuthService) {}
   ngOnInit(): void {}
 
-  openModal() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = '500px';
-    dialogConfig.minHeight = '600px';
-    const dialogRef = this.dialog.open(SampleCalculatorComponent);
+  openModal(): void {
+    const sampleCalcDialogRef = this.dialog.open(SampleCalculatorComponent, {
+      minWidth: '350px'
+    });
   }
 }
