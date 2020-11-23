@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelpPageComponent } from '../help-page/help-page.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HouseDBService } from '../shared/services/houseDB.service';
 import { AuthService } from '../shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-home',
@@ -18,7 +19,9 @@ export class RegisterHomeComponent implements OnInit {
     private houseDBservice: HouseDBService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
-    public authService: AuthService
+    public authService: AuthService,
+    public router: Router,
+    public ngZone: NgZone
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +49,10 @@ export class RegisterHomeComponent implements OnInit {
     const houseData = this.homeForm.value;
 
     this.houseDBservice.createAndStoreHome(houseData);
+
+    this.ngZone.run(() => {
+      this.router.navigate(['dashboard']);
+    });
   }
 
   openModal() {
