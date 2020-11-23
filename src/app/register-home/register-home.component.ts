@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelpPageComponent } from '../help-page/help-page.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HouseDBService } from '../shared/services/houseDB.service';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-register-home',
@@ -11,18 +12,20 @@ import { HouseDBService } from '../shared/services/houseDB.service';
 })
 export class RegisterHomeComponent implements OnInit {
   homeForm: FormGroup;
+  house = null;
 
   constructor(
     private houseDBservice: HouseDBService,
     private formBuilder: FormBuilder,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.homeForm = this.formBuilder.group({
       houseName: [null, [Validators.required]],
       squareFootage: [null, Validators.required],
-      yearBuild: [null, Validators.required],
+      yearBuilt: [null, Validators.required],
       stories: [null, Validators.required],
       rValue: [null, Validators.required],
       doors: [null, Validators.required],
@@ -41,7 +44,7 @@ export class RegisterHomeComponent implements OnInit {
       return;
     }
     const houseData = this.homeForm.value;
-    console.log(this.homeForm.value);
+
     this.houseDBservice.createAndStoreHome(houseData);
   }
 

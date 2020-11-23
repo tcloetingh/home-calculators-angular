@@ -3,14 +3,15 @@ import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LogoutModalComponent } from './logout-modal/logout-modal.component';
+import { HouseDBService } from '../shared/services/houseDB.service';
 
-export interface PeriodicElement {
+export interface HomeValues {
   name: string;
   position: number;
   value: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const HOME_DATA: HomeValues[] = [
   { position: 1, name: 'House Name', value: '5RI' },
   { position: 2, name: 'Square Footage', value: '686' },
   { position: 3, name: 'Number of Windows', value: '13' },
@@ -30,16 +31,24 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'value'];
-  dataSource = ELEMENT_DATA;
+  dataSource = HOME_DATA;
+  uid = this.authService.userData.uid;
+  fetchedHomeData;
 
   constructor(
     public authService: AuthService,
     public router: Router,
     public ngZone: NgZone,
-    public dialog: MatDialog // public dialogConfig: MatDialogConfig
+    public dialog: MatDialog,
+    public houseDBservice: HouseDBService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.houseDBservice.getHome().subscribe(res => {
+      this.fetchedHomeData = res;
+      console.log(this.fetchedHomeData);
+    });
+  }
 
   openLogoutModal() {
     const myModal = this.dialog.open(LogoutModalComponent);

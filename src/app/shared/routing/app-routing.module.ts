@@ -27,7 +27,8 @@ const routes: Routes = [
   },
   {
     path: 'calculate',
-    component: CalculateComponent
+    component: CalculateComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

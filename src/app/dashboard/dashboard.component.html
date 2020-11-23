@@ -31,30 +31,24 @@
       </div>
     </div>
   </div>
+
+  <!-- test box -->
+  <div *ngIf="fetchedHomeData">
+    <mat-card>
+      <h1>{{ fetchedHomeData[0].houseName }}</h1>
+      <h2>{{ fetchedHomeData[0].yearBuilt }}</h2>
+      <h2>{{ fetchedHomeData[0].numberWindows }}</h2>
+      <h2>{{ fetchedHomeData[0].sqftWindows }}</h2>
+      <h2>{{ fetchedHomeData[0].rValue }}</h2>
+      <h2>{{ fetchedHomeData[0].stories }}</h2>
+      <h2>{{ fetchedHomeData[0].heatSource }}</h2>
+      <h2>{{ fetchedHomeData[0].heatingDD }}</h2>
+      <h2>{{ fetchedHomeData[0].coolingDD }}</h2>
+      <h2>{{ fetchedHomeData[0].windowType }}</h2>
+    </mat-card>
+  </div>
   <!-- Table -->
-  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.position }} </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
-    </ng-container>
-
-    <!-- Value Column -->
-    <ng-container matColumnDef="value">
-      <mat-header-cell *matHeaderCellDef> Value </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.value }} </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-  </mat-table>
-  <a mat-fab color="accent" class="logout-button" (click)="openLogoutModal()">
-    <mat-icon>clear</mat-icon>
-  </a>
+  <button mat-fab color="accent" (click)="openLogoutModal()">
+    <mat-icon>help</mat-icon>
+  </button>
 </div>
