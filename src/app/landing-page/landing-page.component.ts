@@ -9,10 +9,13 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
+  isLoggedIn = this.authService.isLoggedIn;
   constructor(public dialog: MatDialog, public authService: AuthService) {}
   ngOnInit(): void {}
 
   openModal(): void {
-    const sampleCalcDialogRef = this.dialog.open(SampleCalculatorComponent);
+    const sampleCalcDialogRef = this.dialog.open(SampleCalculatorComponent, {
+      panelClass: 'custom-dialog-container'
+    });
   }
 }

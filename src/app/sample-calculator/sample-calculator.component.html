@@ -4,9 +4,6 @@
   (submit)="onSampleCalculation()"
   class="form-container"
   *ngIf="showForm"
-  fxLayoutAlign="center center"
-  fxFlexFill
-  fxFlex="100"
 >
   <mat-dialog-content fxLayout="column" class="sample-form">
     <h2 mat-dialog-title>Window Heat Loss Calculator</h2>
@@ -76,14 +73,9 @@
         <button mat-raised-button color="accent" type="submit">
           Calculate
         </button>
-        <button
-          mat-raised-button
-          type="button"
-          (click)="this.sampleForm.reset()"
-        >
-          Reset
+        <button mat-raised-button color="primary" mat-dialog-close>
+          Close
         </button>
-        <button mat-raised-button mat-dialog-close>Close</button>
       </mat-dialog-action>
     </div>
   </mat-dialog-content>

@@ -36,7 +36,7 @@ export class RegisterHomeComponent implements OnInit {
       sqftWindows: [null, Validators.required],
       windowType: [null, Validators.required],
       heatSource: [null, Validators.required],
-      kwh: [null],
+      kwh: [null, Validators.required],
       heatingDD: [null, Validators.required],
       coolingDD: [null, Validators.required]
     });
@@ -50,9 +50,7 @@ export class RegisterHomeComponent implements OnInit {
 
     this.houseDBservice.createAndStoreHome(houseData);
 
-    this.ngZone.run(() => {
-      this.router.navigate(['dashboard']);
-    });
+    this.router.navigate(['dashboard']);
   }
 
   openModal() {

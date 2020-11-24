@@ -8,7 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 const MaterialComponents = [
   MatToolbarModule,
@@ -20,7 +20,7 @@ const MaterialComponents = [
   MatInputModule,
   MatSelectModule,
   MatCardModule,
-  MatTableModule
+  MatProgressBarModule
 ];
 
 @NgModule({

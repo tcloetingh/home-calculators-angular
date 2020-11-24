@@ -34,21 +34,44 @@
 
   <!-- test box -->
   <div *ngIf="fetchedHomeData">
-    <mat-card>
-      <h1>{{ fetchedHomeData[0].houseName }}</h1>
-      <h2>{{ fetchedHomeData[0].yearBuilt }}</h2>
-      <h2>{{ fetchedHomeData[0].numberWindows }}</h2>
-      <h2>{{ fetchedHomeData[0].sqftWindows }}</h2>
-      <h2>{{ fetchedHomeData[0].rValue }}</h2>
-      <h2>{{ fetchedHomeData[0].stories }}</h2>
-      <h2>{{ fetchedHomeData[0].heatSource }}</h2>
-      <h2>{{ fetchedHomeData[0].heatingDD }}</h2>
-      <h2>{{ fetchedHomeData[0].coolingDD }}</h2>
-      <h2>{{ fetchedHomeData[0].windowType }}</h2>
+    <mat-card *ngFor="let home of fetchedHomeData" class="card">
+      <h1>Residence Name: {{ home.houseName }}</h1>
+      <h3>
+        Year Built: {{ home.yearBuilt }}
+        <mat-progress-bar mode="determinate" value="65"></mat-progress-bar>
+      </h3>
+      <h3>
+        Insulation R Value: {{ home.rValue }}
+        <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
+      </h3>
+      <h3>
+        Number of Windows: {{ home.numberWindows }}
+        <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
+      </h3>
+      <h3>
+        Square Footage of Windows: {{ home.sqftWindows }}
+        <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+      </h3>
+      <h3>
+        Window Construction: {{ home.windowType }}
+        <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+      </h3>
+      <h3>
+        Levels / Stories: {{ home.stories }}
+        <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+      </h3>
+      <h3>
+        Heat Source: {{ home.heatSource }}
+        <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+      </h3>
+      <h3>
+        Heating Degree Days: {{ home.heatingDD }}
+        <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+      </h3>
+      <h3>
+        Cooling Degree Days: {{ home.coolingDD }}
+        <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+      </h3>
     </mat-card>
   </div>
-  <!-- Table -->
-  <button mat-fab color="accent" (click)="openLogoutModal()">
-    <mat-icon>help</mat-icon>
-  </button>
 </div>

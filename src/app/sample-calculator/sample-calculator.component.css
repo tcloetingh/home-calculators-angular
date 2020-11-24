@@ -15,7 +15,6 @@ h2 {
   text-align: center;
 }
 
-.form-container {
-  min-width: 350px;
-  margin: 0px;
+button {
+  width: 100px;
 }
