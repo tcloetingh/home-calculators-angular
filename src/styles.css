@@ -12,5 +12,4 @@ body {
 .custom-dialog-container .mat-dialog-container {
   padding: 30px;
   overflow-x: hidden !important;
-  height: 500px;
 }

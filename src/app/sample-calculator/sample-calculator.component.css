@@ -2,17 +2,13 @@ form button {
   margin: 5px;
 }
 
+.form-container {
+  text-align: center;
+}
+
 .energyResults h4,
 .energyResults span {
   color: red;
-}
-
-h2 {
-  text-align: center;
-}
-
-.button-box {
-  text-align: center;
 }
 
 button {

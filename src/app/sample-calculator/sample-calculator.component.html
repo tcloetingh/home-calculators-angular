@@ -1,11 +1,11 @@
 <!-- FORM -->
-<form
-  [formGroup]="sampleForm"
-  (submit)="onSampleCalculation()"
-  class="form-container"
-  *ngIf="showForm"
->
-  <mat-dialog-content fxLayout="column" class="sample-form">
+<mat-dialog-content fxLayout="column" class="sample-form">
+  <form
+    [formGroup]="sampleForm"
+    (submit)="onSampleCalculation()"
+    class="form-container"
+    *ngIf="showForm"
+  >
     <h2 mat-dialog-title>Window Heat Loss Calculator</h2>
 
     <mat-form-field appearance="fill">
@@ -78,8 +78,8 @@
         </button>
       </mat-dialog-action>
     </div>
-  </mat-dialog-content>
-</form>
+  </form>
+</mat-dialog-content>
 
 <!-- SPINNER -->
 <mat-dialog-content *ngIf="isLoading">

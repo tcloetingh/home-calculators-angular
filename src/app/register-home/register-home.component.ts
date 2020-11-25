@@ -36,7 +36,6 @@ export class RegisterHomeComponent implements OnInit {
       sqftWindows: [null, Validators.required],
       windowType: [null, Validators.required],
       heatSource: [null, Validators.required],
-      kwh: [null, Validators.required],
       heatingDD: [null, Validators.required],
       coolingDD: [null, Validators.required]
     });
@@ -44,8 +43,10 @@ export class RegisterHomeComponent implements OnInit {
 
   onSubmit() {
     if (!this.homeForm.valid) {
+      console.log('not working');
       return;
     }
+    console.log('working');
     const houseData = this.homeForm.value;
 
     this.houseDBservice.createAndStoreHome(houseData);
