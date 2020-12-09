@@ -1,30 +1,26 @@
 <div class="container">
-  <div>
-    <mat-icon>calculate</mat-icon>
-    <h1>Calculations</h1>
-    <p>
-      Choose from any number of calculators. If registered, your home
-      information can be autopopulated into the relevant fields
-    </p>
+  <h1><mat-icon>calculate</mat-icon> Calculations</h1>
+  <mat-nav-list>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <a routerLink="full-season">Full Season Heat Loss Calculator</a>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <a routerLink="window-payback">Window Payback Calculator</a>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <a (click)="openModal()">R Value Heat Transfer Calculator</a>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <a (click)="openModal()">BTU load per room calculator</a>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-nav-list>
+  <mat-divider></mat-divider>
+  <div class="calculations-container">
+    <router-outlet></router-outlet>
   </div>
-  <mat-card>
-    <mat-card-title>Full Season Heat Loss Calculator</mat-card-title>
-    <button mat-fab color="accent" (click)="openModal()">Open</button>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>R Value Based Heat Loss</mat-card-title>
-    <button mat-fab color="accent" (click)="openModal()">Open</button>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>Window Payback Calculator</mat-card-title>
-    <button mat-fab color="accent" (click)="openModal()">Open</button>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>MANUAL J</mat-card-title>
-    <button mat-fab color="accent" (click)="openModal()">Open</button>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>Window Air Conditioner Sizing</mat-card-title>
-    <button mat-fab color="accent" (click)="openModal()">Open</button>
-  </mat-card>
 </div>

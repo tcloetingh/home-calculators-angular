@@ -1,22 +1,3 @@
-mat-card-title {
-  text-align: center;
-}
-
-.mat-card {
-  min-width: 350px;
-  max-width: 500px;
-  margin-top: 50px;
-  margin-bottom: 70px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 30px;
-}
-
-.main-container {
-  height: 1000px;
-  padding-bottom: 100px;
-}
-
 .help-button {
   top: auto !important;
   right: 20px !important;

@@ -2,7 +2,7 @@
   <div fxLayout="column">
     <br />
     <br />
-    <h1>Home Data Organizer</h1>
+    <h1>Full Season Heat Loss Calculator</h1>
     <p>
       This calculation is designed to take elements and components of your
       building envelope and compare it against the Heating Degree Days of your
@@ -12,9 +12,9 @@
   </div>
 </div>
 <div fxLayout="row" fxLayoutAlign="center">
-  <mat-card class="mat-card" fxFlex="70">
-    <mat-card-title class="title">Home Envelope Data</mat-card-title>
-    <form [formGroup]="homeForm" (submit)="onSubmit()">
+  <mat-card class="mat-card" fxFlex="80">
+    <mat-card-title class="title">Full Season BTU Transfer</mat-card-title>
+    <form [formGroup]="fullSeasonForm" (submit)="onSubmit()">
       <div
         fxLayout="row"
         fxLayout.xs="column"
@@ -23,39 +23,21 @@
         fxLayoutGap.xs="0"
       >
         <div fxLayout="column" fxFlex="40">
-          <!-- Name -->
-          <mat-form-field class="form-field" appearance="outline">
-            <mat-label>Building Indentifier (name)</mat-label>
-            <input matInput formControlName="houseName" />
-          </mat-form-field>
           <!-- Square Footage -->
           <mat-form-field class="form-field" appearance="outline">
             <mat-label> Total Square Footage </mat-label>
             <input matInput formControlName="squareFootage" type="number" />
             <mat-error
               *ngIf="
-                homeForm.controls.squareFootage.touched &&
-                homeForm.controls.squareFootage.invalid
+                fullSeasonForm.controls.squareFootage.touched &&
+                fullSeasonForm.controls.squareFootage.invalid
               "
             >
-              <span *ngIf="homeForm.controls.squareFootage.errors.required"
+              <span
+                *ngIf="fullSeasonForm.controls.squareFootage.errors.required"
                 >This field is mandatory.</span
               >
             </mat-error>
-          </mat-form-field>
-          <!-- number of stories -->
-          <mat-form-field class="form-field" appearance="outline">
-            <mat-label>Number of Stories</mat-label>
-            <mat-select formControlName="stories">
-              <mat-option value="1">1</mat-option>
-              <mat-option value="2">2</mat-option>
-              <mat-option value="3">3</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <!-- Year Built -->
-          <mat-form-field appearance="outline">
-            <mat-label>Year Built</mat-label>
-            <input matInput type="nubmer" formControlName="yearBuilt" />
           </mat-form-field>
           <!-- R VALUE -->
           <mat-form-field appearance="outline">
@@ -73,18 +55,6 @@
               <mat-option value="5">5</mat-option>
             </mat-select>
           </mat-form-field>
-          <!-- Basement -->
-          <mat-form-field appearance="outline">
-            <mat-label>Basement</mat-label>
-            <mat-select formControlName="doors">
-              <mat-option value="1">None</mat-option>
-              <mat-option value="2">Crawspace</mat-option>
-              <mat-option value="3">Unfinished & Uninsulated</mat-option>
-              <mat-option value="4">Finished & Insulated</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div fxLayout="column" fxFlex="40">
           <!-- Number of Windows -->
           <mat-form-field appearance="outline">
             <mat-label>Number of Windows</mat-label>
@@ -95,6 +65,8 @@
             <mat-label>Square Footage of Windows (including frame)</mat-label>
             <input matInput type="number" formControlName="sqftWindows" />
           </mat-form-field>
+        </div>
+        <div fxLayout="column" fxFlex="40">
           <!-- Type Of Windows -->
           <mat-form-field appearance="outline">
             <mat-label>Type of Window</mat-label>
@@ -154,13 +126,9 @@
       </div>
       <div fxLayout="row" fxLayoutAlign="center">
         <button mat-raised-button color="primary" type="submit">
-          Register Home Data
+          Run Calculation
         </button>
       </div>
     </form>
   </mat-card>
 </div>
-
-<button mat-fab color="accent" class="help-button" (click)="openModal()">
-  <mat-icon>help</mat-icon>
-</button>

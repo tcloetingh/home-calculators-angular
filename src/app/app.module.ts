@@ -41,6 +41,8 @@ import { TestModalComponent } from './test-modal/test-modal.component';
 import { CalculateComponent } from './calculate/calculate.component';
 import { CalcModalComponent } from './calculate/calc-modal/calc-modal.component';
 import { MustLoginComponent } from './main-nav/must-login/must-login.component';
+import { FullSeasonCalcComponent } from './calculate/individual-calculators/full-season-calc/full-season-calc.component';
+import { WindowPaybackCalcComponent } from './calculate/individual-calculators/window-payback-calc/window-payback-calc.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { MustLoginComponent } from './main-nav/must-login/must-login.component';
     TestModalComponent,
     CalculateComponent,
     CalcModalComponent,
-    MustLoginComponent
+    MustLoginComponent,
+    FullSeasonCalcComponent,
+    WindowPaybackCalcComponent
   ],
   imports: [
     BrowserModule,

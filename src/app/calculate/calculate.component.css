@@ -1,3 +1,7 @@
-mat-card {
-  margin: 20px 75px;
+.container {
+  margin: 30px;
+}
+
+h1 {
+  text-align: center;
 }

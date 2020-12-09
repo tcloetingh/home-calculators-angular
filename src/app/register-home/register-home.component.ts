@@ -37,7 +37,8 @@ export class RegisterHomeComponent implements OnInit {
       windowType: [null, Validators.required],
       heatSource: [null, Validators.required],
       heatingDD: [null, Validators.required],
-      coolingDD: [null, Validators.required]
+      coolingDD: [null, Validators.required],
+      kwh: [null, Validators.required]
     });
   }
 
