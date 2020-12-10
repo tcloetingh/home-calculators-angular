@@ -5,3 +5,23 @@
   left: auto !important;
   position: fixed !important;
 }
+
+.title-box {
+  margin: 30px;
+}
+
+h1,
+p {
+  text-align: center;
+}
+
+hr {
+  width: 90%;
+  height: 2px;
+  background-color: #009688;
+}
+
+mat-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -7,7 +7,7 @@
         *ngIf="!isLoggedIn"
         mat-raised-button
         color="accent"
-        (click)="authService.GoogleAuth()"
+        (click)="signInRedirect()"
         >Sign In With Google</a
       >
       <a

@@ -1,19 +1,16 @@
 <div fxLayout="row">
-  <div fxLayout="column">
+  <div fxLayout="column" class="title-box">
     <br />
     <br />
     <h1>Home Data Organizer</h1>
     <p>
-      This calculation is designed to take elements and components of your
-      building envelope and compare it against the Heating Degree Days of your
-      region. HDD are recorded annually and can be averaged out to get a more
-      generalized estimate
+      The structural components that make up your building envelope will determine energy efficiency. Uploading your home data will allow you to quantify and better understand it's defficiencies.
     </p>
   </div>
 </div>
+<hr />
 <div fxLayout="row" fxLayoutAlign="center">
   <mat-card class="mat-card" fxFlex="70">
-    <mat-card-title class="title">Home Envelope Data</mat-card-title>
     <form [formGroup]="homeForm" (submit)="onSubmit()">
       <div
         fxLayout="row"
@@ -137,18 +134,53 @@
           </mat-form-field>
           <!-- Heating Degree Days -->
           <mat-form-field appearance="outline">
-            <mat-label>Heating Degree Days</mat-label>
-            <input matInput type="number" formControlName="heatingDD" />
+            <mat-label>Annual Heating Degree Days</mat-label>
+            <mat-select formControlName="heatingDD">
+              <mat-option value="1000">1000</mat-option>
+              <mat-option value="1500">1500</mat-option>
+              <mat-option value="2000">2000</mat-option>
+              <mat-option value="2500">2500</mat-option>
+              <mat-option value="3000">3000</mat-option>
+              <mat-option value="3500">3500</mat-option>
+              <mat-option value="4000">4000</mat-option>
+              <mat-option value="4500">4500</mat-option>
+              <mat-option value="5000">5000</mat-option>
+              <mat-option value="5000">5500</mat-option>
+              <mat-option value="6000">6000</mat-option>
+              <mat-option value="6500">6500</mat-option>
+              <mat-option value="7000">7000</mat-option>
+            </mat-select>
           </mat-form-field>
           <!-- Cooling Degree Days -->
           <mat-form-field appearance="outline">
             <mat-label>Cooling Degree Days</mat-label>
-            <input matInput type="number" formControlName="coolingDD" />
+            <mat-select formControlName="coolingDD">
+              <mat-option value="500">500</mat-option>
+              <mat-option value="1000">1000</mat-option>
+              <mat-option value="1500">1500</mat-option>
+              <mat-option value="2000">2000</mat-option>
+              <mat-option value="2500">2500</mat-option>
+              <mat-option value="3000">3000</mat-option>
+              <mat-option value="3500">3500</mat-option>
+              <mat-option value="4000">4000</mat-option>
+            </mat-select>
           </mat-form-field>
           <!-- KwH -->
           <mat-form-field appearance="outline">
             <mat-label>Electricity Price</mat-label>
-            <input matInput type="number" formControlName="kwh" />
+            <mat-select formControlName="kwh">
+              <mat-option value=".10">10 cents per KwH</mat-option>
+              <mat-option value=".11">11 cents per KwH</mat-option>
+              <mat-option value=".12">12 cents per KwH</mat-option>
+              <mat-option value=".13">13 cents per KwH</mat-option>
+              <mat-option value=".14">14 cents per KwH</mat-option>
+              <mat-option value=".15">15 cents per KwH</mat-option>
+              <mat-option value=".16">16 cents per KwH</mat-option>
+              <mat-option value=".17">17 cents per KwH</mat-option>
+              <mat-option value=".18">18 cents per KwH</mat-option>
+              <mat-option value=".19">19 cents per KwH</mat-option>
+              <mat-option value=".20">20 cents per KwH</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
       </div>
