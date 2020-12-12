@@ -14,38 +14,36 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'sign-in',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   { path: 'sign-in', component: LandingPageComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'register-home',
     component: RegisterHomeComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'calculate',
     component: CalculateComponent,
-    canActivate: [AuthGuard],
     children: [
       {
         path: 'full-season',
-        component: FullSeasonCalcComponent
+        component: FullSeasonCalcComponent,
       },
       {
         path: 'window-payback',
-        component: WindowPaybackCalcComponent
-      }
-    ]
-  }
+        component: WindowPaybackCalcComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
