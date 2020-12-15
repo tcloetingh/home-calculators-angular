@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-  isLoggedIn = this.authService.isLoggedIn;
-
   constructor(
     public dialog: MatDialog,
     public authService: AuthService,
@@ -22,6 +20,7 @@ export class LandingPageComponent implements OnInit {
 
   signInRedirect(): void {
     this.authService.GoogleAuth();
+    this.router.navigate(['dashboard']);
   }
 
   openModal(): void {

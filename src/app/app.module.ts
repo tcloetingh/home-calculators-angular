@@ -22,6 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Auth service
 import { AuthService } from './shared/services/auth.service';
+// Data Sharing Service
+import { DataSharingService } from './shared/services/data-sharing.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -77,7 +79,12 @@ import { WindowPaybackCalcComponent } from './calculate/individual-calculators/w
     FontAwesomeModule,
     FlexLayoutModule
   ],
-  providers: [AuthService, CalculationsService, HouseDBService],
+  providers: [
+    AuthService,
+    CalculationsService,
+    HouseDBService,
+    DataSharingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
