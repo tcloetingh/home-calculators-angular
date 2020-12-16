@@ -33,4 +33,8 @@ export class DashboardComponent implements OnInit {
       console.log(this.fetchedHomeData);
     });
   }
+
+  openModal(): void {
+    const sampleCalcDialogRef = this.dialog.open(LogoutModalComponent, {});
+  }
 }

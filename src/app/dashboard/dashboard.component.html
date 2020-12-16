@@ -1,4 +1,4 @@
-<div><h1>DASHBOARD</h1></div>
+<div><h1>HOME ENVELOPE DASHBOARD</h1></div>
 <div class="dashboard-container" *ngIf="authService.userData as user">
   <div class="info-box">
     <div class="contact-section">
@@ -69,5 +69,8 @@
       Cooling Degree Days: {{ home.coolingDD }}
       <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
     </h3>
+    <button mat-raised-button color="primary" (click)="openModal()">
+      Edit Details
+    </button>
   </mat-card>
 </div>

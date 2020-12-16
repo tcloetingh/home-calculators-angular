@@ -1,13 +1,7 @@
 <!-- FORM -->
-<mat-dialog-content fxLayout="column" class="sample-form">
-  <form
-    [formGroup]="sampleForm"
-    (submit)="onSampleCalculation()"
-    class="form-container"
-    *ngIf="showForm"
-  >
-    <h2 mat-dialog-title>Window Heat Loss Calculator</h2>
-
+<div *ngIf="showForm" [formGroup]="sampleForm">
+  <h2 mat-dialog-title>Window Heat Loss Calculator</h2>
+  <mat-dialog-content fxLayout="column" class="sample-form">
     <mat-form-field appearance="fill">
       <mat-label>Number of Windows</mat-label>
       <input matInput required formControlName="numberOfWindows" />
@@ -68,18 +62,23 @@
         <mat-option value="0.20">$0.20/KwH</mat-option>
       </mat-select>
     </mat-form-field>
-    <div class="button-box">
-      <mat-dialog-action>
-        <button mat-raised-button color="accent" type="submit">
-          Calculate
-        </button>
-        <button mat-raised-button color="primary" mat-dialog-close>
-          Close
-        </button>
-      </mat-dialog-action>
-    </div>
-  </form>
-</mat-dialog-content>
+  </mat-dialog-content>
+  <div class="button-box">
+    <mat-dialog-action>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        (click)="onSampleCalculation()"
+      >
+        Calculate
+      </button>
+      <button mat-raised-button color="primary" mat-dialog-close>
+        Close
+      </button>
+    </mat-dialog-action>
+  </div>
+</div>
 
 <!-- SPINNER -->
 <mat-dialog-content *ngIf="isLoading">
