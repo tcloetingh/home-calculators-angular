@@ -1,21 +1,49 @@
 <div class="landing-container">
   <div class="landing-overlay">
     <div class="button-box">
-      <div class="mat-headline">Improve your home with DATA</div>
-      <a mat-raised-button (click)="openModal()">Sample Calculator</a>
+      <div class="mat-headline" *ngIf="!authService.isLoggedIn">
+        Improve your home with DATA
+      </div>
+      <div class="mat-headline" *ngIf="authService.isLoggedIn">
+        Organize Home Data. Track Statistics. Calculate Accordingly.
+      </div>
+      <a mat-raised-button *ngIf="!authService.isLoggedIn" (click)="openModal()"
+        >Sample Calculator</a
+      >
       <a
-        *ngIf="!isLoggedIn"
+        *ngIf="!authService.isLoggedIn"
         mat-raised-button
         color="accent"
         (click)="signInRedirect()"
         >Sign In With Google</a
       >
       <a
-        *ngIf="isLoggedIn"
+        *ngIf="authService.isLoggedIn"
         mat-raised-button
         color="accent"
         (click)="authService.SignOut()"
         >Logout</a
+      >
+      <a
+        *ngIf="authService.isLoggedIn"
+        mat-raised-button
+        color="accent"
+        [routerLink]="['/calculate']"
+        >Calculators</a
+      >
+      <a
+        *ngIf="authService.isLoggedIn"
+        mat-raised-button
+        color="accent"
+        [routerLink]="['/register-home']"
+        >Register Your Home</a
+      >
+      <a
+        *ngIf="authService.isLoggedIn"
+        mat-raised-button
+        color="accent"
+        [routerLink]="['/dashboard']"
+        >Dashboard</a
       >
     </div>
   </div>

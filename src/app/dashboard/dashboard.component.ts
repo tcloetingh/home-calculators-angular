@@ -17,7 +17,6 @@ export interface HomeValues {
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  // uid = this.authService.userData.uid;
   fetchedHomeData;
 
   constructor(
@@ -28,9 +27,14 @@ export class DashboardComponent implements OnInit {
     public houseDBservice: HouseDBService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.houseDBservice.getHome().subscribe(res => {
       this.fetchedHomeData = res;
+      console.log(this.fetchedHomeData);
     });
+  }
+
+  openModal(): void {
+    const sampleCalcDialogRef = this.dialog.open(LogoutModalComponent, {});
   }
 }

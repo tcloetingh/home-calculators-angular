@@ -1,13 +1,186 @@
-<p>Ready to Log Out ?</p>
-<mat-dialog-actions>
-  <a
-    mat-raised-button
-    color="accent"
-    type="button"
-    (click)="authService.SignOut()"
-    mat-dialog-close
+<div fxLayout="row" fxLayoutAlign="center">
+  <h1>Update Home Data</h1>
+</div>
+<mat-dialog-content [formGroup]="homeForm">
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="30px"
+    fxLayoutGap.xs="0"
+    class="form-container"
   >
-    Logout
-  </a>
-  <button mat-raised-button mat-dialog-close>Stay Logged In</button>
+    <div fxLayout="column" fxFlex="40">
+      <!-- Name -->
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Building Indentifier (name)</mat-label>
+        <input matInput formControlName="houseName" />
+      </mat-form-field>
+      <!-- Square Footage -->
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Total Square Footage </mat-label>
+        <input matInput formControlName="squareFootage" type="number" />
+        <mat-error
+          *ngIf="
+            homeForm.controls.squareFootage.touched &&
+            homeForm.controls.squareFootage.invalid
+          "
+        >
+          <span *ngIf="homeForm.controls.squareFootage.errors.required"
+            >This field is mandatory.</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <!-- number of stories -->
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Number of Stories</mat-label>
+        <mat-select formControlName="stories">
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- Year Built -->
+      <mat-form-field appearance="outline">
+        <mat-label>Year Built</mat-label>
+        <input matInput type="nubmer" formControlName="yearBuilt" />
+      </mat-form-field>
+      <!-- R VALUE -->
+      <mat-form-field appearance="outline">
+        <mat-label>R Value of Wall Insulation</mat-label>
+        <input matInput type="number" formControlName="rValue" />
+      </mat-form-field>
+      <!-- Exterior Doors -->
+      <mat-form-field appearance="outline">
+        <mat-label>Exterior Doors</mat-label>
+        <mat-select formControlName="doors">
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- Basement -->
+      <mat-form-field appearance="outline">
+        <mat-label>Basement</mat-label>
+        <mat-select formControlName="doors">
+          <mat-option value="1">None</mat-option>
+          <mat-option value="2">Crawspace</mat-option>
+          <mat-option value="3">Unfinished & Uninsulated</mat-option>
+          <mat-option value="4">Finished & Insulated</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column" fxFlex="40">
+      <!-- Number of Windows -->
+      <mat-form-field appearance="outline">
+        <mat-label>Number of Windows</mat-label>
+        <input matInput type="number" formControlName="numberWindows" />
+      </mat-form-field>
+      <!-- Square Footage of Windows -->
+      <mat-form-field appearance="outline">
+        <mat-label>Square Footage of Windows (including frame)</mat-label>
+        <input matInput type="number" formControlName="sqftWindows" />
+      </mat-form-field>
+      <!-- Type Of Windows -->
+      <mat-form-field appearance="outline">
+        <mat-label>Type of Window</mat-label>
+        <mat-select formControlName="windowType">
+          <mat-option value=".9">Old Single Pane Wooden Frame</mat-option>
+          <mat-option value="0.8">Old Double Pane Aluminum Frame</mat-option>
+          <mat-option value="0.7">Old Double Pane Woode Frame</mat-option>
+          <mat-option value="0.6">Old Vynl Frame Double Pane</mat-option>
+          <mat-option value="0.5"
+            >Double Pane Vinyl (Average Quality)</mat-option
+          >
+          <mat-option value="0.5"
+            >New Thermally Broken Double Pane Aluminum</mat-option
+          >
+          <mat-option value="0.3"
+            >Brand New Premium Vinyl Double Pane</mat-option
+          >
+          <mat-option value="0.33"
+            >Brand New Premium Wooden Frame Double Pane</mat-option
+          >
+          <mat-option value="0.2"
+            >Top Of The Line Triple Pane Premium Vinyl</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <!-- Heating Source -->
+      <mat-form-field appearance="outline">
+        <mat-label>Heating Source</mat-label>
+        <mat-select formControlName="heatSource">
+          <mat-option value="electric"
+            >Electric Resistance / Baseboard</mat-option
+          >
+          <mat-option value="heatPump">Heat Pump</mat-option>
+          <mat-option value="gas">Natural Gas</mat-option>
+          <mat-option value="oil">Oil</mat-option>
+          <mat-option value="propane">Propane</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- Heating Degree Days -->
+      <mat-form-field appearance="outline">
+        <mat-label>Annual Heating Degree Days</mat-label>
+        <mat-select formControlName="heatingDD">
+          <mat-option value="1000">1000</mat-option>
+          <mat-option value="1500">1500</mat-option>
+          <mat-option value="2000">2000</mat-option>
+          <mat-option value="2500">2500</mat-option>
+          <mat-option value="3000">3000</mat-option>
+          <mat-option value="3500">3500</mat-option>
+          <mat-option value="4000">4000</mat-option>
+          <mat-option value="4500">4500</mat-option>
+          <mat-option value="5000">5000</mat-option>
+          <mat-option value="5000">5500</mat-option>
+          <mat-option value="6000">6000</mat-option>
+          <mat-option value="6500">6500</mat-option>
+          <mat-option value="7000">7000</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- Cooling Degree Days -->
+      <mat-form-field appearance="outline">
+        <mat-label>Cooling Degree Days</mat-label>
+        <mat-select formControlName="coolingDD">
+          <mat-option value="500">500</mat-option>
+          <mat-option value="1000">1000</mat-option>
+          <mat-option value="1500">1500</mat-option>
+          <mat-option value="2000">2000</mat-option>
+          <mat-option value="2500">2500</mat-option>
+          <mat-option value="3000">3000</mat-option>
+          <mat-option value="3500">3500</mat-option>
+          <mat-option value="4000">4000</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- KwH -->
+      <mat-form-field appearance="outline">
+        <mat-label>Electricity Price</mat-label>
+        <mat-select formControlName="kwh">
+          <mat-option value=".10">10 cents per KwH</mat-option>
+          <mat-option value=".11">11 cents per KwH</mat-option>
+          <mat-option value=".12">12 cents per KwH</mat-option>
+          <mat-option value=".13">13 cents per KwH</mat-option>
+          <mat-option value=".14">14 cents per KwH</mat-option>
+          <mat-option value=".15">15 cents per KwH</mat-option>
+          <mat-option value=".16">16 cents per KwH</mat-option>
+          <mat-option value=".17">17 cents per KwH</mat-option>
+          <mat-option value=".18">18 cents per KwH</mat-option>
+          <mat-option value=".19">19 cents per KwH</mat-option>
+          <mat-option value=".20">20 cents per KwH</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Update Home Data
+    </button>
+    <button mat-raised-button color="accent" (click)="close()">
+      Close & Don't Update
+    </button>
+  </div>
 </mat-dialog-actions>

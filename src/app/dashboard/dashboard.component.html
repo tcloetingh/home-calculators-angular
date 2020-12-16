@@ -1,3 +1,4 @@
+<div><h1>HOME ENVELOPE DASHBOARD</h1></div>
 <div class="dashboard-container" *ngIf="authService.userData as user">
   <div class="info-box">
     <div class="contact-section">
@@ -16,9 +17,6 @@
       <p>
         Email: <strong>{{ user.email }}</strong>
       </p>
-      <p>
-        Email Verified: <strong>{{ user.emailVerified }}</strong>
-      </p>
     </div>
     <div class="percentage-section">
       <h2>Efficiency Rating</h2>
@@ -33,45 +31,46 @@
   </div>
 
   <!-- test box -->
-  <div *ngIf="fetchedHomeData">
-    <mat-card *ngFor="let home of fetchedHomeData" class="card">
-      <h1>Residence Name: {{ home.houseName }}</h1>
-      <h3>
-        Year Built: {{ home.yearBuilt }}
-        <mat-progress-bar mode="determinate" value="65"></mat-progress-bar>
-      </h3>
-      <h3>
-        Insulation R Value: {{ home.rValue }}
-        <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
-      </h3>
-      <h3>
-        Number of Windows: {{ home.numberWindows }}
-        <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
-      </h3>
-      <h3>
-        Square Footage of Windows: {{ home.sqftWindows }}
-        <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
-      </h3>
-      <h3>
-        Window Construction: {{ home.windowType }}
-        <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
-      </h3>
-      <h3>
-        Levels / Stories: {{ home.stories }}
-        <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
-      </h3>
-      <h3>
-        Heat Source: {{ home.heatSource }}
-        <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
-      </h3>
-      <h3>
-        Heating Degree Days: {{ home.heatingDD }}
-        <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
-      </h3>
-      <h3>
-        Cooling Degree Days: {{ home.coolingDD }}
-        <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
-      </h3>
-    </mat-card>
-  </div>
+  <mat-card *ngFor="let home of fetchedHomeData" class="card">
+    <h1>Residence Name: {{ home.houseName }}</h1>
+    <h3>
+      Year Built: {{ home.yearBuilt }}
+      <mat-progress-bar mode="determinate" value="65"></mat-progress-bar>
+    </h3>
+    <h3>
+      Insulation R Value: {{ home.rValue }}
+      <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
+    </h3>
+    <h3>
+      Number of Windows: {{ home.numberWindows }}
+      <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
+    </h3>
+    <h3>
+      Square Footage of Windows: {{ home.sqftWindows }}
+      <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+    </h3>
+    <h3>
+      Window Construction: {{ home.windowType }}
+      <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+    </h3>
+    <h3>
+      Levels / Stories: {{ home.stories }}
+      <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+    </h3>
+    <h3>
+      Heat Source: {{ home.heatSource }}
+      <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+    </h3>
+    <h3>
+      Heating Degree Days: {{ home.heatingDD }}
+      <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+    </h3>
+    <h3>
+      Cooling Degree Days: {{ home.coolingDD }}
+      <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+    </h3>
+    <button mat-raised-button color="primary" (click)="openModal()">
+      Edit Details
+    </button>
+  </mat-card>
 </div>

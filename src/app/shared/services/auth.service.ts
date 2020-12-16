@@ -1,13 +1,12 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../services/user';
-// import { auth } from 'firebase/app';
+import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import {
   AngularFirestore,
   AngularFirestoreDocument
 } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { auth } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -85,7 +84,7 @@ export class AuthService {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
-      location.reload();
+      window.location.reload();
     });
   }
 }
