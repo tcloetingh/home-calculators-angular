@@ -1,3 +1,23 @@
 .title {
   text-align: center;
 }
+
+.spinner {
+  height: 25vh;
+  width: 25vh;
+  text-align: center;
+  margin: auto;
+}
+
+.energyResults {
+  margin: auto;
+  width: 50vh;
+}
+
+.energyResults span {
+  color: red;
+}
+
+.calc-header {
+  margin-bottom: 30px;
+}

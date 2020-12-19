@@ -1,1 +1,155 @@
-<p>window-payback-calc works!</p>
+<div fxLayout="row" class="calc-header">
+  <div fxLayout="column">
+    <br />
+    <br />
+    <h1>New Windows Payback Period Calculator</h1>
+    <p>
+      The window payback calculator will help estimate the payback period for
+      new windows. It takes into consideration the thermal effeciency of new the
+      windows vs the old, and also considers the equity gained in your home /
+      building.
+      <a
+        href="https://www.weatherdatadepot.com/degree-day-comparison"
+        target="_blank"
+        >weatherdatadepot.com/degree-day-comparison</a
+      >
+    </p>
+  </div>
+</div>
+<div *ngIf="showForm" fxLayout="row" fxLayoutAlign="center">
+  <mat-card class="mat-card" fxFlex="80">
+    <mat-card-title class="title">Window Payback Period</mat-card-title>
+    <form [formGroup]="fullSeasonForm" (submit)="onSubmit()">
+      <div
+        fxLayout="row"
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="30px"
+        fxLayoutGap.xs="0"
+      >
+        <div fxLayout="column" fxFlex="40">
+          <!-- Number of Windows -->
+          <mat-form-field appearance="outline">
+            <mat-label>Number of Windows</mat-label>
+            <input matInput type="number" formControlName="numberWindows" />
+          </mat-form-field>
+          <!-- Square Footage of Windows -->
+          <mat-form-field appearance="outline">
+            <mat-label>Square Footage of Windows (including frame)</mat-label>
+            <input matInput type="number" formControlName="sqftWindows" />
+          </mat-form-field>
+          <!-- Type Of Windows -->
+          <mat-form-field appearance="outline">
+            <mat-label>Type of Existing Windows</mat-label>
+            <mat-select formControlName="windowType">
+              <mat-option value=".9">Old Single Pane Wooden Frame</mat-option>
+              <mat-option value="0.8"
+                >Old Double Pane Aluminum Frame</mat-option
+              >
+              <mat-option value="0.7">Old Double Pane Woode Frame</mat-option>
+              <mat-option value="0.6">Old Vynl Frame Double Pane</mat-option>
+              <mat-option value="0.5"
+                >Double Pane Vinyl (Average Quality)</mat-option
+              >
+              <mat-option value="0.5"
+                >New Thermally Broken Double Pane Aluminum</mat-option
+              >
+              <mat-option value="0.3"
+                >Brand New Premium Vinyl Double Pane</mat-option
+              >
+              <mat-option value="0.33"
+                >Brand New Premium Wooden Frame Double Pane</mat-option
+              >
+              <mat-option value="0.2"
+                >Top Of The Line Triple Pane Premium Vinyl</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <!-- New Window -->
+          <mat-form-field appearance="outline">
+            <mat-label>New Window Type</mat-label>
+            <mat-select formControlName="newWindowType">
+              <mat-option>
+                <mat-option value="vinyl"
+                  >Brand New Premium Vinyl Double Pane</mat-option
+                >
+                <mat-option value="wood"
+                  >Brand New Premium Wooden Frame Double Pane</mat-option
+                >
+                <mat-option value="triple"
+                  >Top Of The Line Triple Pane Premium Vinyl</mat-option
+                >
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxFlex="40">
+          <!-- Heating Source -->
+          <mat-form-field appearance="outline">
+            <mat-label>Heating Source</mat-label>
+            <mat-select formControlName="heatSource">
+              <mat-option value="electric"
+                >Electric Resistance / Baseboard</mat-option
+              >
+              <mat-option value="heatPump">Heat Pump</mat-option>
+              <mat-option value="gas">Natural Gas</mat-option>
+              <mat-option value="oil">Oil</mat-option>
+              <mat-option value="propane">Propane</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- Heating Degree Days -->
+          <mat-form-field appearance="outline">
+            <mat-label>Heating Degree Days</mat-label>
+            <input matInput type="number" formControlName="heatingDD" />
+          </mat-form-field>
+
+          <!-- KwH -->
+          <mat-form-field appearance="outline">
+            <mat-label>Electricity Rate</mat-label>
+            <mat-select formControlName="kwh">
+              <mat-option value="0.9">$0.09/KwH</mat-option>
+              <mat-option value="0.10">$0.10/KwH</mat-option>
+              <mat-option value="0.11">$0.11/KwH</mat-option>
+              <mat-option value="0.12">$0.12/KwH</mat-option>
+              <mat-option value="0.13">$0.13/KwH</mat-option>
+              <mat-option value="0.14">$0.14/KwH</mat-option>
+              <mat-option value="0.15">$0.15/KwH</mat-option>
+              <mat-option value="0.16">$0.16/KwH</mat-option>
+              <mat-option value="0.17">$0.17/KwH</mat-option>
+              <mat-option value="0.18">$0.18/KwH</mat-option>
+              <mat-option value="0.19">$0.19/KwH</mat-option>
+              <mat-option value="0.20">$0.20/KwH</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <button mat-raised-button color="primary" type="submit">
+          Run Calculation
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+<!-- Spinner -->
+<div *ngIf="isLoading" class="spinner">
+  <mat-card>
+    <app-loading-spinner></app-loading-spinner>
+  </mat-card>
+</div>
+
+<!-- Results -->
+<mat-card *ngIf="energyResults" class="energyResults">
+  <h2 mat-dialog-title color="warn">Results Summary:</h2>
+  <p>
+    With an annual <span>{{ energyResults.heatingDD }}</span> heating degree
+    days your windows lose
+    <span>{{ energyResults.btuLoss | number }}</span> BTU's per season equaling
+    <span>{{ energyResults.wattsUsed | number }}</span> watts of electricity,
+    costing you <span>${{ energyResults.moneySpent | number }}</span> per year.
+  </p>
+  <button mat-raised-button color="primary" (click)="recalculate()">
+    Recalculate
+  </button>
+</mat-card>
