@@ -17,7 +17,7 @@
   </div>
 </div>
 <div *ngIf="showForm" fxLayout="row" fxLayoutAlign="center">
-  <mat-card class="mat-card" fxFlex="80">
+  <mat-card fxFlex="80" class="mat-card">
     <mat-card-title class="title">Window Payback Period</mat-card-title>
     <form [formGroup]="windowPayback" (submit)="onSubmit()">
       <div

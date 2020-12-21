@@ -7,17 +7,11 @@
       <div class="mat-headline" *ngIf="authService.isLoggedIn">
         Organize Home Data. Track Statistics. Calculate Accordingly.
       </div>
-      <a mat-raised-button *ngIf="!authService.isLoggedIn" (click)="openModal()"
-        >Sample Calculator</a
-      >
-
-      <a
-        *ngIf="!authService.isLoggedIn"
-        mat-raised-button
-        color="accent"
-        (click)="signInRedirect()"
-        >Sign In With Google</a
-      >
+      <div class="isLoggedOut" *ngIf="!authService.isLoggedIn">
+        <a (click)="openModal()">Sample Calculator</a>
+        <p>|</p>
+        <a (click)="signInRedirect()">Sign In With Google</a>
+      </div>
       <div class="isLoggedIn" *ngIf="authService.isLoggedIn">
         <a color="accent" [routerLink]="['/calculate']">Calculators</a>
         <p>|</p>
