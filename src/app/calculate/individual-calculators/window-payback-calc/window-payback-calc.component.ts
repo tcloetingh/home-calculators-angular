@@ -8,7 +8,7 @@ import { CalculationsService } from 'src/app/shared/services/calculations.servic
   styleUrls: ['./window-payback-calc.component.css']
 })
 export class WindowPaybackCalcComponent implements OnInit {
-  fullSeasonForm: FormGroup;
+  windowPayback: FormGroup;
   isLoading = false;
   showForm = true;
   energyResults;
@@ -19,7 +19,7 @@ export class WindowPaybackCalcComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.fullSeasonForm = this.formBuilder.group({
+    this.windowPayback = this.formBuilder.group({
       numberWindows: [null, Validators.required],
       sqftWindows: [null, Validators.required],
       windowType: [null, Validators.required],
@@ -33,14 +33,14 @@ export class WindowPaybackCalcComponent implements OnInit {
   onSubmit() {
     this.isLoading = true;
     this.showForm = false;
-    if (!this.fullSeasonForm.valid) {
+    if (!this.windowPayback.valid) {
       console.log('not working');
       return;
     }
 
     setTimeout(() => {
-      this.energyResults = this.calcService.fullSeasonCalc(
-        this.fullSeasonForm.value
+      this.energyResults = this.calcService.windowPayback(
+        this.windowPayback.value
       );
       this.isLoading = false;
     }, 3000);
@@ -50,6 +50,6 @@ export class WindowPaybackCalcComponent implements OnInit {
     this.isLoading = false;
     this.showForm = true;
     this.energyResults = null;
-    this.fullSeasonForm.reset();
+    this.windowPayback.reset();
   }
 }

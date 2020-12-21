@@ -19,7 +19,7 @@
 <div *ngIf="showForm" fxLayout="row" fxLayoutAlign="center">
   <mat-card class="mat-card" fxFlex="80">
     <mat-card-title class="title">Window Payback Period</mat-card-title>
-    <form [formGroup]="fullSeasonForm" (submit)="onSubmit()">
+    <form [formGroup]="windowPayback" (submit)="onSubmit()">
       <div
         fxLayout="row"
         fxLayout.xs="column"
@@ -69,17 +69,13 @@
           <mat-form-field appearance="outline">
             <mat-label>New Window Type</mat-label>
             <mat-select formControlName="newWindowType">
-              <mat-option>
-                <mat-option value="vinyl"
-                  >Brand New Premium Vinyl Double Pane</mat-option
-                >
-                <mat-option value="wood"
-                  >Brand New Premium Wooden Frame Double Pane</mat-option
-                >
-                <mat-option value="triple"
-                  >Top Of The Line Triple Pane Premium Vinyl</mat-option
-                >
-              </mat-option>
+              <mat-option value="vinyl">Brand New Vinyl Double Pane</mat-option>
+              <mat-option value="premium"
+                >Brand New Premium Vinyl Double Pane</mat-option
+              >
+              <mat-option value="triple"
+                >Top Of The Line Triple Pane Premium Vinyl</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>
@@ -143,11 +139,14 @@
 <mat-card *ngIf="energyResults" class="energyResults">
   <h2 mat-dialog-title color="warn">Results Summary:</h2>
   <p>
-    With an annual <span>{{ energyResults.heatingDD }}</span> heating degree
-    days your windows lose
-    <span>{{ energyResults.btuLoss | number }}</span> BTU's per season equaling
-    <span>{{ energyResults.wattsUsed | number }}</span> watts of electricity,
-    costing you <span>${{ energyResults.moneySpent | number }}</span> per year.
+    With an annual
+    <span>{{ energyResults.heatingInfo.heatingDD }}</span> heating degree days
+    your windows lose
+    <span>{{ energyResults.heatingInfo.btuLoss | number }}</span> BTU's per
+    season equaling
+    <span>{{ energyResults.heatingInfo.wattsUsed | number }}</span> watts of
+    electricity, costing you
+    <span>${{ energyResults.heatingInfo.moneySpent | number }}</span> per year.
   </p>
   <button mat-raised-button color="primary" (click)="recalculate()">
     Recalculate

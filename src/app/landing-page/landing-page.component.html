@@ -10,6 +10,7 @@
       <a mat-raised-button *ngIf="!authService.isLoggedIn" (click)="openModal()"
         >Sample Calculator</a
       >
+
       <a
         *ngIf="!authService.isLoggedIn"
         mat-raised-button
@@ -17,34 +18,15 @@
         (click)="signInRedirect()"
         >Sign In With Google</a
       >
-      <a
-        *ngIf="authService.isLoggedIn"
-        mat-raised-button
-        color="accent"
-        (click)="authService.SignOut()"
-        >Logout</a
-      >
-      <a
-        *ngIf="authService.isLoggedIn"
-        mat-raised-button
-        color="accent"
-        [routerLink]="['/calculate']"
-        >Calculators</a
-      >
-      <a
-        *ngIf="authService.isLoggedIn"
-        mat-raised-button
-        color="accent"
-        [routerLink]="['/register-home']"
-        >Register Your Home</a
-      >
-      <a
-        *ngIf="authService.isLoggedIn"
-        mat-raised-button
-        color="accent"
-        [routerLink]="['/dashboard']"
-        >Dashboard</a
-      >
+      <div class="isLoggedIn" *ngIf="authService.isLoggedIn">
+        <a color="accent" [routerLink]="['/calculate']">Calculators</a>
+        <p>|</p>
+        <a color="accent" [routerLink]="['/register-home']">Register Home</a>
+        <p>|</p>
+        <a color="accent" [routerLink]="['/dashboard']">Dashboard</a>
+        <p>|</p>
+        <a color="accent" (click)="authService.SignOut()">Logout</a>
+      </div>
     </div>
   </div>
 </div>
