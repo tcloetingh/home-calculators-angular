@@ -8,18 +8,42 @@
         Organize Home Data. Track Statistics. Calculate Accordingly.
       </div>
       <div class="isLoggedOut" *ngIf="!authService.isLoggedIn">
-        <a (click)="openModal()">Sample Calculator</a>
+        <div class="click-bubble">
+          <a (click)="openModal()"
+            ><mat-icon>assessment</mat-icon> Sample Calculator</a
+          >
+        </div>
         <p>|</p>
-        <a (click)="signInRedirect()">Sign In With Google</a>
+        <div class="click-bubble">
+          <a (click)="signInRedirect()"
+            ><mat-icon>backup</mat-icon> Sign In With Google</a
+          >
+        </div>
       </div>
       <div class="isLoggedIn" *ngIf="authService.isLoggedIn">
-        <a color="accent" [routerLink]="['/calculate']">Calculators</a>
+        <div class="click-bubble">
+          <a color="accent" [routerLink]="['/calculate']"
+            ><mat-icon>assessment</mat-icon> Calculators</a
+          >
+        </div>
         <p>|</p>
-        <a color="accent" [routerLink]="['/register-home']">Register Home</a>
+        <div class="click-bubble">
+          <a color="accent" [routerLink]="['/register-home']"
+            ><mat-icon>online_prediction</mat-icon> Register Home</a
+          >
+        </div>
         <p>|</p>
-        <a color="accent" [routerLink]="['/dashboard']">Dashboard</a>
+        <div class="click-bubble">
+          <a color="accent" [routerLink]="['/dashboard']"
+            ><mat-icon>list</mat-icon> Dashboard</a
+          >
+        </div>
         <p>|</p>
-        <a color="accent" (click)="authService.SignOut()">Logout</a>
+        <div class="click-bubble">
+          <a color="accent" (click)="authService.SignOut()"
+            ><mat-icon>arrow_circle_down</mat-icon> Logout</a
+          >
+        </div>
       </div>
     </div>
   </div>

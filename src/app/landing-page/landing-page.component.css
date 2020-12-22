@@ -31,29 +31,29 @@
 }
 
 .isLoggedIn {
-  background-color: #474747;
+  background: none;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-evenly;
   margin: auto;
   width: 90%;
-  max-width: 600px;
+  max-width: 700px;
   border-radius: 8px;
 }
 
 .isLoggedOut {
-  background-color: #474747;
+  background: none;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-evenly;
   margin: auto;
   width: 90%;
-  max-width: 400px;
+  max-width: 500px;
   border-radius: 8px;
 }
 
-.isLoggedIn > a,
-.isLoggedOut > a {
+.isLoggedIn div a,
+.isLoggedOut div a {
   text-align: center;
   line-height: 30px;
   font-size: 20px;
@@ -61,18 +61,26 @@
   color: #80cbc4;
   font-weight: 300;
   overflow: hidden;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 a:hover {
   cursor: pointer;
 }
 
-.isLoggedIn > p,
-.isLoggedOut > p {
-  font-size: 20px;
+.isLoggedIn p,
+.isLoggedOut p {
+  font-size: 40px;
   color: #80cbc4;
-  margin-top: 8px;
-  margin-bottom: -4px;
+  margin-top: auto;
+}
+
+.click-bubble {
+  border: 2px solid #80cbc4;
+  border-radius: 4px;
+  background-color: #474747;
+  padding: 4px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -83,5 +91,8 @@ a:hover {
   }
   p {
     display: none;
+  }
+  .click-bubble {
+    margin-top: 8px;
   }
 }
