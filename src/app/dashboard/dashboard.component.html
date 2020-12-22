@@ -1,38 +1,32 @@
-<div><h1>HOME ENVELOPE DASHBOARD</h1></div>
 <div class="dashboard-container" *ngIf="authService.userData as user">
   <div class="info-box">
     <div class="contact-section">
-      <img
-        class="thumbnail-img"
-        src="{{ user.photoURL ? user.photoURL : '/assets/dummy-user.png' }}"
-        alt="{{ user.displayName }}"
-      />
       <h1>
         Hello:
         <strong>{{ user.displayName ? user.displayName : "User" }}</strong>
       </h1>
       <p>
-        User ID: <strong>{{ user.uid }}</strong>
-      </p>
-      <p>
         Email: <strong>{{ user.email }}</strong>
       </p>
     </div>
-    <div class="percentage-section">
-      <h2>Efficiency Rating</h2>
-      <div class="c100 p34 center">
-        <span>34%</span>
-        <div class="slice">
-          <div class="bar"></div>
-          <div class="fill"></div>
+  </div>
+  <hr />
+
+  <!-- home box -->
+  <mat-card *ngFor="let home of fetchedHomeData" class="card">
+    <div class="efficiency-box">
+      <h1>Residence Name: {{ home.houseName }}</h1>
+      <div class="percentage-box">
+        <h3>Efficiency Rating</h3>
+        <div class="c100 p34 center">
+          <span>34%</span>
+          <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- test box -->
-  <mat-card *ngFor="let home of fetchedHomeData" class="card">
-    <h1>Residence Name: {{ home.houseName }}</h1>
     <h3>
       Year Built: {{ home.yearBuilt }}
       <mat-progress-bar mode="determinate" value="65"></mat-progress-bar>
